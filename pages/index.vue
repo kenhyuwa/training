@@ -2,9 +2,7 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">
-        training
-      </h1>
+      <LogoDua/>
       <h2 class="subtitle">
         My smashing Nuxt.js project
       </h2>
@@ -23,10 +21,11 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import LogoDua from '~/components/LogoDua.vue'
 
 export default {
   components: {
-    Logo
+    Logo, LogoDua
   }
 }
 </script>

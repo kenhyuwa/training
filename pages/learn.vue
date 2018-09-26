@@ -6,13 +6,18 @@
                     <nuxt-link class="navbar-item" :to="`/`">
                         <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
                     </nuxt-link>
-                    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                    <div class="navbar-burger burger" 
+                        :class="{ 'is-active' : isActive }"
+                        @click="myToggle"
+                    >
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
                 </div>
-                <div id="navbarExampleTransparentExample" class="navbar-menu">
+                <div class="navbar-menu"
+                    :class="{ 'is-active' : isActive }"
+                >
                     <div class="navbar-start">
                         <nuxt-link class="navbar-item" :to="`/`">
                             Home
@@ -124,15 +129,21 @@
 </template>
 
 <script>
-
+// import LogoDua from '~/components/LogoDua.vue'
 export default {
-  asyncData ({ app }) {
-    return app.$axios.get(`/users`)
-        .then((response) => {
-            return{
-                users: response.data.data
-            }
-        })
-  }
+    // components:{
+    //     LogoDua
+    // },
+    data(){
+        return{
+            isActive: false,
+            text: 'OK'
+        }
+    },
+    methods:{
+        myToggle(){
+            this.isActive = !this.isActive
+        }
+    }
 }
 </script>
